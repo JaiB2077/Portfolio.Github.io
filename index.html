@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaibarath Subramaniam - Creative Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+            --light-text: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .contact-info {
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav a:hover {
+            text-decoration: underline;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .portfolio-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .tools-used {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tool-tag {
+            background-color: var(--light-bg);
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        .experience-item {
+            margin-bottom: 2rem;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .company {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .duration {
+            color: #777;
+        }
+        
+        .experience-content ul {
+            padding-left: 1.5rem;
+        }
+        
+        .experience-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-me {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .about-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #ddd;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .artistic-process {
+            margin-top: 2rem;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 250px;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--light-text);
+            margin: 0 0.5rem;
+        }
+        .about-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    overflow: hidden;  /* This is important - it crops anything outside the circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ddd;
+}
+
+.about-photo img {
+    width: 100%;  / Make the image fill the container width /
+    height: 100%;  / Make the image fill the container height /
+    object-fit: cover;  / This makes the image cover the area while maintaining aspect ratio /
+    border-radius: 50%;  / Make the image itself round too */
+}
+
+        
+        @media (max-width: 768px) {
+            .about-me {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .portfolio-items {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Jaibarath Subramaniam Ravichandran</h1>
+            <p class="tagline">Quality-focused Engineer with Creative Evaluation Expertise</p>
+            <p class="contact-info">617-448-5093 | subramaniamravicha.j@northeastern.edu</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-me">
+                <div class="about-photo">
+                    <img src="ME.jpg" alt="Jaibarath Subramaniam Ravichandran">
+                </div>
+                <div>
+                    <p>I am an Industrial Engineering graduate student with a strong background in quality control, process optimization, and attention to detail. My mechanical engineering foundation combined with my experience in quality assurance has given me a unique perspective on evaluating visual aesthetics and technical accuracy.</p>
+                    <p>My expertise in quality management systems, root cause analysis, and defect identification makes me an ideal candidate for creative evaluation roles that require critical thinking and analytical skills. I've spent years developing my eye for detail through rigorous quality inspection processes and lean manufacturing improvements.</p>
+                    <p>Currently pursuing my MS in Industrial Engineering at Northeastern University, I'm passionate about applying my technical expertise to the creative sector, particularly in AI-driven content evaluation and quality assurance.</p>
+                </div>
+            </div>
+            
+            <div class="artistic-process">
+                <h3>My Evaluation Process</h3>
+                <p>When approaching creative evaluation, I follow a structured methodology that combines technical assessment with aesthetic appreciation:</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h4>Analysis of Requirements</h4>
+                        <p>I begin by thoroughly understanding the prompt specifications and project requirements, establishing clear evaluation criteria.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h4>Technical Assessment</h4>
+                        <p>Using tools like Adobe Creative Suite, I analyze composition, color accuracy, lighting, and technical execution against established benchmarks.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h4>Aesthetic Evaluation</h4>
+                        <p>I assess creative elements like style consistency, artistic interpretation, and visual impact while maintaining objectivity.</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h4>Detailed Feedback</h4>
+                        <p>I provide structured, actionable feedback with clear documentation of strengths, weaknesses, and specific improvement suggestions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Creative & Technical Tools</h3>
+                    <ul class="skill-list">
+                        <li>Adobe Creative Suite (Photoshop, Illustrator, Premiere)</li>
+                        <li>Visual Analysis & Composition Assessment</li>
+                        <li>Color Theory & Lighting Evaluation</li>
+                        <li>Technical Drawing & CAD Proficiency</li>
+                        <li>Minitab & Statistical Analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Quality Assessment</h3>
+                    <ul class="skill-list">
+                        <li>Quality Management Systems (QMS)</li>
+                        <li>Root Cause Analysis (RCA)</li>
+                        <li>Failure Mode and Effects Analysis (FMEA)</li>
+                        <li>Statistical Quality Control (SQC)</li>
+                        <li>Six Sigma Methodologies (Green Belt Certified)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Process Improvement</h3>
+                    <ul class="skill-list">
+                        <li>Visual Stream Mapping (VSM)</li>
+                        <li>Time-Motion Studies</li>
+                        <li>Process Optimization Techniques</li>
+                        <li>Corrective and Preventive Action (CAPA)</li>
+                        <li>5S Methodology & Lean Principles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio-items">
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="E:\Portfolio\QC.jpeg" alt="Quality Control Dashboard">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Visual Quality Control Dashboard</h3>
+                        <p>Designed and implemented a visual quality control dashboard for tracking defects and quality metrics in manufacturing processes. This project involved visual data representation and user experience design.</p>
+                        <div class="tools-used">
+                            <span class="tool-tag">PowerBI</span>
+                            <span class="tool-tag">Excel</span>
+                            <span class="tool-tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="E:\Portfolio\Visual.jpeg" alt="Process Flow Visualization">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Manufacturing Process Flow Visualization</h3>
+                        <p>Created detailed visual representations of automotive assembly processes, highlighting bottlenecks and optimization opportunities through engaging visual storytelling.</p>
+                        <div class="tools-used">
+                            <span class="tool-tag">Adobe Illustrator</span>
+                            <span class="tool-tag">VSM</span>
+                            <span class="tool-tag">CAD</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="/api/placeholder/400/200" alt="Defect Analysis">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Visual Defect Analysis System</h3>
+                        <p>Developed a visual cataloging system for manufacturing defects, creating detailed documentation with visual examples and classification criteria for training and quality control purposes.</p>
+                        <div class="tools-used">
+                            <span class="tool-tag">Photoshop</span>
+                            <span class="tool-tag">Documentation</span>
+                            <span class="tool-tag">FMEA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-img">
+                        <img src="E:\Portfolio\Manu.jpeg" alt="Material Design Documentation">
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Al-Si Composite Material Visual Documentation</h3>
+                        <p>Created comprehensive visual documentation for Al-Si metal matrix composites research, including microscopy imagery analysis and property characterization visuals.</p>
+                        <div class="tools-used">
+                            <span class="tool-tag">Technical Photography</span>
+                            <span class="tool-tag">Image Analysis</span>
+                            <span class="tool-tag">Scientific Visualization</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Relevant Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company">Schroeder Hydraulics Private Limited</div>
+                    <div class="position">Quality Engineer</div>
+                    <div class="duration">Sep 2023 – Dec 2023</div>
+                </div>
+                <div class="experience-content">
+                    <ul>
+                        <li>Conducted detailed visual inspections of hydraulic components against stringent quality standards</li>
+                        <li>Implemented visual quality control metrics, improving defect identification accuracy by 20%</li>
+                        <li>Performed failure mode analysis with visual documentation of potential defects</li>
+                        <li>Created standardized visual inspection guides for quality assurance team</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company">Tube Products of India-Murugappa group</div>
+                    <div class="position">Graduate Engineer Trainee-QA</div>
+                    <div class="duration">May 2023 – Aug 2023</div>
+                </div>
+                <div class="experience-content">
+                    <ul>
+                        <li>Executed 2500+ visual inspections on steel tubes with 99.5% accuracy rate</li>
+                        <li>Managed quality audits achieving exceptional defect identification (0.5 PPM rate)</li>
+                        <li>Standardized component dimensions documentation for improved visual reference</li>
+                        <li>Maintained detailed visual records for quality assurance and compliance purposes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company">Keller ITS India Pvt. Ltd.</div>
+                    <div class="position">Manufacturing Project Intern</div>
+                    <div class="duration">Dec 2022 – May 2023</div>
+                </div>
+                <div class="experience-content">
+                    <ul>
+                        <li>Utilized statistical tools to analyze performance indicators and present data visually</li>
+                        <li>Conducted detailed defect analysis with visual documentation</li>
+                        <li>Developed standardized calibration documentation with visual aids</li>
+                        <li>Improved infrared sensor calibration accuracy through visual alignment techniques</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="education">
+            <h2>Education & Certification</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company">Northeastern University</div>
+                    <div class="position">MS in Industrial Engineering</div>
+                    <div class="duration">Expected Apr 2026</div>
+                </div>
+                <div class="experience-content">
+                    <p><strong>Relevant Coursework:</strong> Intelligent Manufacturing, Lean Concepts, Operations Research, Supply Chain Engineering</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company">St. Joseph's Institute of Technology</div>
+                    <div class="position">BE in Mechanical Engineering</div>
+                    <div class="duration">May 2023</div>
+                </div>
+                <div class="experience-content">
+                    <p><strong>Relevant Coursework:</strong> Quality Control, Industrial Management, Process Optimization, Systems and Operations</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company">The Council for Six Sigma Certification</div>
+                    <div class="position">Lean Six Sigma Green Belt Certification</div>
+                    <div class="duration">Feb 2025</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>I'm currently seeking opportunities as a Creative Evaluator where I can apply my quality assurance expertise and attention to detail to AI-generated content evaluation. Please feel free to reach out via email or phone to discuss how my skills align with your requirements.</p>
+            
+            <div class="experience-item">
+                <div class="experience-content">
+                    <p><strong>Phone:</strong> 617-448-5093</p>
+                    <p><strong>Email:</strong> subramaniamravicha.j@northeastern.edu</p>
+                    <p><strong>LinkedIn:</strong> <a href="#">LinkedIn Profile</a></p>
+                    <p><strong>Availability:</strong> Immediately available for part-time remote positions</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Jaibarath Subramaniam Ravichandran</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
